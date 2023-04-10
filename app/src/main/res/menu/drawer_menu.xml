@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_test1"
+            android:icon="@drawable/ic_test"
+            android:title="Add trip" />
+        <item
+            android:id="@+id/nav_test2"
+            android:icon="@drawable/ic_test"
+            android:title="My trips" />
+        <item
+            android:id="@+id/nav_test3"
+            android:icon="@drawable/ic_test"
+            android:title="Settings" />
+        <item
+            android:id="@+id/nav_test4"
+            android:icon="@drawable/ic_test"
+            android:title="Guide?" />
+        <item
+            android:id="@+id/nav_test5"
+            android:icon="@drawable/ic_test"
+            android:title="Fuel calculator" />
+        <item
+            android:id="@+id/nav_test6"
+            android:icon="@drawable/ic_test"
+            android:title="Budget" />
+    </group>
+
+    <item android:title="Test5">
+        <menu>
+            <item
+                android:id="@+id/testv2_1"
+                android:icon="@drawable/ic_test"
+                android:title="Profile" />
+            <item
+                android:id="@+id/testv2_2"
+                android:icon="@drawable/ic_test"
+                android:title="Log out" />
+        </menu>
+
+    </item>
+
+</menu>
