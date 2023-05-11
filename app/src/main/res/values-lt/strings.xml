@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="VilniusDesc">
+        Vilnius - Lietuvos sostinė, esanti šalies pietryčiuose. Apie 540 000 gyventojų turintis miestas yra didžiausias Lietuvos miestas ir vienas svarbiausių kultūros, švietimo ir ekonomikos centrų Baltijos regione. Miestas turi turtingą istoriją, siekiančią XIV a., ir pasižymi unikaliu gotikos, baroko ir renesanso architektūros deriniu. Miestas taip pat garsėja aktyviu naktiniu gyvenimu, daugybe muziejų, parkų ir kultūrinių renginių. Vilnius yra populiari turistų lankoma vieta, kurioje lankytojai gali susipažinti su Lietuvos praeitimi ir dabartimi.
+    </string>
+
+    <string name="WarsawDesc">
+        Varšuva, dar vadinama Varšuva, yra Lenkijos sostinė. Ji yra rytinėje šalies dalyje, joje gyvena apie 1,8 mln. gyventojų, todėl ji yra didžiausias Lenkijos miestas. Varšuva yra svarbus Lenkijos ekonominis, politinis ir kultūrinis centras, jame yra daug svarbių istorinių paminklų, muziejų, teatrų ir universitetų. Miestas turi turtingą ir sudėtingą istoriją, nes per Antrąjį pasaulinį karą buvo nuniokotas, o vėliau atstatytas, ir garsėja įspūdingu modernios ir istorinės architektūros deriniu. Varšuvos svečiai gali apžiūrėti daugybę parkų ir sodų, paragauti tradicinės lenkų virtuvės patiekalų ir pajusti gyvybingą šio klestinčio didmiesčio energiją.
+    </string>
+
+    <string name="BerlinDesc">
+        Berlynas yra Vokietijos sostinė, įsikūrusi šalies šiaurės rytuose. Jame gyvena apie 3,7 mln. gyventojų, todėl jis yra didžiausias Vokietijos miestas ir vienas svarbiausių politinių, kultūrinių ir ekonominių centrų Europoje. Berlynas turi įdomią istoriją, kuri atsispindi unikaliame modernios ir istorinės architektūros, kultūros įstaigų ir įžymybių derinyje. Miestas garsėja gyvybinga meno scena, daugybe muziejų, galerijų ir teatrų, yra kūrybiškumo ir inovacijų centras. Berlyno svečiai gali apžiūrėti daugybę parkų, turgų, kultūrinių renginių ir patirti unikalią šio gyvybingo miesto atmosferą.
+    </string>
+
+    <string name="PragueDesc">
+        Praha, čekų kalba dar vadinama Praha, yra Čekijos Respublikos sostinė. Prahoje, esančioje vakarinėje šalies dalyje, gyvena apie 1,3 mln. žmonių, ji garsėja turtinga istorija, nuostabia architektūra ir aktyvia kultūrine veikla. Mieste yra daug žymių objektų, tokių kaip Karolio tiltas, Prahos pilis ir Senamiesčio aikštė, taip pat daugybė muziejų, galerijų ir teatrų. Praha taip pat garsėja gardžia virtuve, įskaitant tradicinius patiekalus, tokius kaip guliašas, kepta kiauliena su koldūnais ir garsusis čekiškas alus. Lankytojai Prahoje gali tyrinėti žavingas grįstas gatveles, šurmuliuojančius turgus ir istorines įžymybes bei patirti nepakartojamą šio nuostabaus miesto atmosferą.
+    </string>
+
+    <string name="StockholmDesc">
+        Stokholmas yra Švedijos sostinė, įsikūrusi rytinėje šalies dalyje. Jame gyvena apie 1,6 mln. gyventojų, jis išsidėstęs 14 salų, sujungtų tiltais ir apsuptų vandens. Stokholmas garsėja nuostabiu gamtos grožiu, turtinga istorija ir aktyvia kultūrine veikla. Mieste yra daug žymių objektų, tokių kaip Karališkieji rūmai, Gamla Stan (senamiestis) ir Vazos muziejus, taip pat daugybė muziejų, galerijų ir teatrų. Stokholmas taip pat garsėja novatorišku dizainu, mada ir virtuve - čia įsikūrę daug visame pasaulyje pripažintų virtuvės šefų ir restoranų. Stokholmo svečiai gali apžiūrėti daugybę parkų, vandens kelių ir istorinių paminklų bei patirti nepakartojamą šio nuostabaus miesto atmosferą.
+    </string>
+
+    <!--For trip planning screen-->
+    <string name="Delete">Ištrinti</string>
+    <string name="Search">Ieškoti</string>
+    <string name="Current_location">Naudoti mano dabartinę vietą</string>
+    <string name="From">Iš</string>
+    <string name="To">Į</string>
+    <string name="Hotels">Viešbučiai</string>
+    <string name="Restaurants">Restoranai</string>
+    <string name="Sights_attractions">Lankytinos vietos</string>
+    <string name="Shopping">Parduotuvės</string>
+    <string name="Fuel_stops">Degalų kolonėlės</string>
+
+    <!-- for trip list -->
+    <string name="Sights">Lankytinos vietos</string>
+    <string name="Fuel">Degalų kolonėlės</string>
+
+    <!--For fuel-->
+    <string name="Efficency">Kuro sąnaudos per 100km</string>
+    <string name="Fuel_cost">Kuro kainą 1l</string>
+    <string name="Calculate">Skaičiuoti</string>
+    <string name="Fuel_needed">Kuras: </string>
+    <string name="Fuel_cost_total"> Kaina: </string>
+
+    <!--For budget-->
+    <string name="Add_an_expense">Pridėkite išlaidą:</string>
+    <string name="Expense_name">Išlaidos pavadinimas</string>
+    <string name="Expense_value">Suma</string>
+    <string name="Add_Expense">Pridėti išlaidą</string>
+
+    <!--For menu-->
+    <string name="Create_trip">Sukurti kelionę</string>
+    <string name="My_Trips">Mano kelionės</string>
+    <string name="Map">Žemėlapis</string>
+    <string name="Guide">Gidas</string>
+    <string name="Fuel_calculator">Kuro sąnaudų skaičiuotuvas</string>
+    <string name="Budget">Išlaidos</string>
+
+    <!--edit trip-->
+    <string name="Edit_Trip">Redaguoti kelionę</string>
+    <string name="Places">Vietos</string>
+    <string name="Select">Pasirinkti</string>
+    <string name="Edit">Redaguoti</string>
+
+    <!--toast-->
+    <string name="Created_Trip">Kelionė sukurta</string>
+    <string name="Updated_Trip">Kelionė atnaujinta</string>
+    <string name="Selected_Trip">Kelionė pasirinkta</string>
+    <string name="Deleted_Trip">Kelionė ištrinta</string>
+    <string name="Edit_or_Delete_Expense">Ištrinti arba redaguoti išlaidą</string>
+    <string name="Deleted_Expense">Išlaida ištrinta</string>
+    <string name="Updated_Expense">Išlaida atnaujinta</string>
+    <string name="Cancel">Atšaukti</string>
+    <string name="Save">Išsaugoti</string>
+
+</resources>
