@@ -7,30 +7,30 @@
         <item
             android:id="@+id/nav_test1"
             android:icon="@drawable/ic_test"
-            android:title="Add trip" />
+            android:title="@string/Create_trip" />
         <item
             android:id="@+id/nav_test2"
             android:icon="@drawable/ic_test"
-            android:title="My trips" />
+            android:title="@string/My_Trips" />
         <item
             android:id="@+id/nav_test3"
             android:icon="@drawable/ic_test"
-            android:title="Settings" />
+            android:title="@string/Map" />
         <item
             android:id="@+id/nav_test4"
             android:icon="@drawable/ic_test"
-            android:title="Guide?" />
+            android:title="@string/Guide" />
         <item
             android:id="@+id/nav_test5"
             android:icon="@drawable/ic_test"
-            android:title="Fuel calculator" />
+            android:title="@string/Fuel_calculator" />
         <item
             android:id="@+id/nav_test6"
             android:icon="@drawable/ic_test"
-            android:title="Budget" />
+            android:title="@string/Budget" />
     </group>
 
-    <item android:title="Test5">
+<!--    <item android:title="Test5">
         <menu>
             <item
                 android:id="@+id/testv2_1"
@@ -42,6 +42,6 @@
                 android:title="Log out" />
         </menu>
 
-    </item>
+    </item>-->
 
 </menu>

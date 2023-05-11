@@ -1,50 +1,76 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@android:color/holo_blue_light">
+    android:layout_height="match_parent">
 
     <EditText
-        android:id="@+id/distance_edit_text"
-        android:layout_width="match_parent"
+        android:id="@+id/From_fuel"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:hint="Distance"
-        android:inputType="numberDecimal" />
+        android:layout_marginTop="76dp"
+        android:hint="@string/From"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.8" />
 
     <EditText
-        android:id="@+id/fuel_efficiency_edit_text"
-        android:layout_width="match_parent"
+        android:id="@+id/To_fuel"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/distance_edit_text"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:hint="Efficency litres per 100km"
-        android:inputType="numberDecimal" />
+        android:layout_marginTop="48dp"
+        android:hint="@string/To"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/From_fuel"
+        app:layout_constraintWidth_percent="0.8" />
 
-    <Button
-        android:id="@+id/calculate_button"
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/efficency"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/fuel_efficiency_edit_text"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="16dp"
-        android:text="Calculate" />
+        android:layout_marginTop="52dp"
+        android:hint="@string/Efficency"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintStart_toStartOf="parent"
+        android:inputType="numberDecimal"
+        app:layout_constraintTop_toBottomOf="@+id/To_fuel"
+        app:layout_constraintWidth_percent="0.8" />
+
+    <EditText
+        android:id="@+id/cost"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:hint="@string/Fuel_cost"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:inputType="numberDecimal"
+        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/efficency"
+        app:layout_constraintWidth_percent="0.8" />
 
     <TextView
         android:id="@+id/result_text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/calculate_button"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:textAppearance="?android:textAppearanceMedium" />
+        android:layout_marginTop="72dp"
+        android:textAppearance="?android:textAppearanceMedium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cost" />
 
-</RelativeLayout>
+    <Button
+        android:id="@+id/calc_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="48dp"
+        android:layout_marginBottom="148dp"
+        android:text="@string/Calculate"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,15 +1,30 @@
 package com.example.planatrip;
 
+import static java.security.AccessController.getContext;
+
+import android.app.Application;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
 
-import com.google.android.gms.maps.CameraUpdateFactory;
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.FragmentActivity;
+
+import com.example.planatrip.fragments.TestMapFragment;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.io.IOException;
+import java.security.AccessControlContext;
 import java.util.HashMap;
 import java.util.List;
 
@@ -18,6 +33,8 @@ public class GetNearbyPlaces extends AsyncTask<Object, String, String>
     private String googlePlaceData, url;
     private GoogleMap mMap;
     private static String TAG = "GetNearbyPlaces";
+
+
     @Override
     protected String doInBackground(Object... objects) {
         mMap = (GoogleMap) objects[0];
@@ -46,6 +63,7 @@ public class GetNearbyPlaces extends AsyncTask<Object, String, String>
         for (int i = 0; i<nearbyPlacesList.size(); i++)
         {
             MarkerOptions markerOptions = new MarkerOptions();
+            //MarkerOptions markerOptions = new MarkerOptions().icon(bitmapDescriptorFromVector(, R.drawable.gas_icon));
 
             HashMap<String,String> googleNearbyPlace = nearbyPlacesList.get(i);
             String nameOfPlace = googleNearbyPlace.get("place_name");
@@ -84,7 +102,13 @@ public class GetNearbyPlaces extends AsyncTask<Object, String, String>
                 markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_VIOLET));
             }
             else if(types.contains("gas_station")==true){
+
+                //markerOptions.icon(bitmapDescriptorFromVector(context, R.drawable.gas_icon));
+
                 //markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.gas_icon));
+                //MarkerOptions().icon(bitmapDescriptorFromVector(Context, R.drawable.gas_icon));
+
+                //markerOptions.icon(bitmapDescriptorFromVector(R.drawable.gas_icon));
                 markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
             }
             else if(types.contains("supermarket")==true){
@@ -103,4 +127,13 @@ public class GetNearbyPlaces extends AsyncTask<Object, String, String>
         }
 
     }
+
+/*    private BitmapDescriptor bitmapDescriptorFromVector(int vectorResId) {
+        Drawable vectorDrawable = ContextCompat.getDrawable(mContext, vectorResId);
+        vectorDrawable.setBounds(0, 0, vectorDrawable.getIntrinsicWidth(), vectorDrawable.getIntrinsicHeight());
+        Bitmap bitmap = Bitmap.createBitmap(vectorDrawable.getIntrinsicWidth(), vectorDrawable.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(bitmap);
+        vectorDrawable.draw(canvas);
+        return BitmapDescriptorFactory.fromBitmap(bitmap);
+    }*/
 }

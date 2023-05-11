@@ -11,17 +11,19 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.app.Dialog;
 import android.app.Fragment;
 import android.content.Intent;
-import android.nfc.Tag;
 import android.os.Bundle;
-import android.os.Message;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 import android.widget.SearchView;
 import android.widget.Toast;
 
+import com.example.planatrip.fragments.BudgetFragment;
+import com.example.planatrip.fragments.FuelCalculatorFragment;
+import com.example.planatrip.fragments.GuideFragment;
+import com.example.planatrip.fragments.CreateTripFragment;
+import com.example.planatrip.fragments.TestMapFragment;
+import com.example.planatrip.fragments.TripListFragment;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.gms.maps.MapFragment;
@@ -81,7 +83,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.nav_test1:
-                getSupportFragmentManager().beginTransaction().replace(R.id.framgent_container,new TestFragment()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.framgent_container,new CreateTripFragment()).commit();
                 break;
             case R.id.nav_test2:
                 getSupportFragmentManager().beginTransaction().replace(R.id.framgent_container,new TripListFragment()).commit();
@@ -89,8 +91,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_test3:
                 getSupportFragmentManager().beginTransaction().replace(R.id.framgent_container,new TestMapFragment()).commit();
                 break;
+            case R.id.nav_test4:
+                getSupportFragmentManager().beginTransaction().replace(R.id.framgent_container,new GuideFragment()).commit();
+                break;
             case R.id.nav_test5:
                 getSupportFragmentManager().beginTransaction().replace(R.id.framgent_container,new FuelCalculatorFragment()).commit();
+                break;
+            case R.id.nav_test6:
+                getSupportFragmentManager().beginTransaction().replace(R.id.framgent_container,new BudgetFragment()).commit();
                 break;
 
         }

@@ -1,0 +1,93 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/edit_popup"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/popup_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:text="@string/Edit_Trip"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/edit_origin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/From" />
+
+    <EditText
+        android:id="@+id/edit_destination"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/To" />
+
+    <TextView
+        android:id="@+id/travel_mode_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/Places"
+        android:textColor="@color/black"
+        android:textSize="18sp" />
+
+    <CheckBox
+        android:id="@+id/hotel_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/Hotels"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
+
+    <CheckBox
+        android:id="@+id/restaurant_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/Restaurants"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
+
+    <CheckBox
+        android:id="@+id/shopping_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/Shopping"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
+
+    <CheckBox
+        android:id="@+id/fuel_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/Fuel_stops"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
+
+    <CheckBox
+        android:id="@+id/sights_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/Sights_attractions"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
+
+<!--    <Button
+        android:id="@+id/save_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Save"
+        android:textColor="@color/white" />-->
+
+</LinearLayout>

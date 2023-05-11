@@ -1,8 +1,88 @@
 <resources>
-    <string name="app_name">PlanAtrip</string>
+    <string name="app_name" translatable="false">PlanAtrip</string>
 
-    <string name="google_maps_api_key">AIzaSyCd2tdGHYf-wYHhnnBJxlO_klDQsAFWo-U</string>
+    <string name="google_maps_api_key" translatable="false">AIzaSyCd2tdGHYf-wYHhnnBJxlO_klDQsAFWo-U</string>
 
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
+    <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
+
+
+    <string name="VilniusDesc">
+        Vilnius is the capital city of Lithuania, located in the southeastern part of the country. With a population of approximately 540,000 people, it is the largest city in Lithuania and one of the most important cultural, educational, and economic centers in the Baltic region. The city has a rich history dating back to the 14th century and features a unique mix of Gothic, Baroque, and Renaissance architecture. It is also known for its vibrant nightlife, numerous museums, parks, and cultural events. Vilnius is a popular tourist destination that offers visitors a fascinating glimpse into Lithuania\'s past and present
+    </string>
+
+    <string name="WarsawDesc">
+        Warsaw, also known as Warszawa in Polish, is the capital city of Poland. It is located in the eastern part of the country and has a population of approximately 1.8 million people, making it the largest city in Poland. Warsaw is a major economic, political, and cultural center of Poland, and is home to many important historical landmarks, museums, theaters, and universities. The city has a rich and complex history, having been devastated during World War II and subsequently rebuilt, and is renowned for its striking mix of modern and historic architecture. Visitors to Warsaw can explore its numerous parks and gardens, sample traditional Polish cuisine, and experience the vibrant energy of this thriving metropolis.
+    </string>
+
+    <string name="BerlinDesc">
+        Berlin is the capital city of Germany, located in the northeastern part of the country. It has a population of approximately 3.7 million people, making it the largest city in Germany and one of the most important political, cultural, and economic centers in Europe. Berlin has a fascinating history that is reflected in its unique blend of modern and historic architecture, cultural institutions, and landmarks. The city is renowned for its vibrant arts scene, numerous museums, galleries, and theaters, and is a hub of creativity and innovation. Visitors to Berlin can explore its many parks, markets, and cultural events, and experience the unique atmosphere of this vibrant city.
+    </string>
+
+    <string name="PragueDesc">
+        Prague, also known as Praha in Czech, is the capital city of the Czech Republic. Located in the western part of the country, Prague has a population of approximately 1.3 million people and is known for its rich history, stunning architecture, and vibrant cultural scene. The city is home to many iconic landmarks, such as the Charles Bridge, Prague Castle, and the Old Town Square, as well as numerous museums, galleries, and theaters. Prague is also famous for its delicious cuisine, including traditional dishes such as goulash, roast pork with dumplings, and the famous Czech beer. Visitors to Prague can explore its charming cobbled streets, bustling markets, and historic landmarks, and experience the unique atmosphere of this beautiful city.
+    </string>
+
+    <string name="StockholmDesc">
+        Stockholm is the capital city of Sweden, located in the eastern part of the country. It has a population of approximately 1.6 million people and is spread over 14 islands, connected by bridges and surrounded by water. Stockholm is known for its stunning natural beauty, rich history, and vibrant cultural scene. The city is home to many iconic landmarks, such as the Royal Palace, Gamla Stan (Old Town), and the Vasa Museum, as well as numerous museums, galleries, and theaters. Stockholm is also famous for its innovative design, fashion, and cuisine, with many world-renowned chefs and restaurants calling the city home. Visitors to Stockholm can explore its many parks, waterways, and historic landmarks, and experience the unique atmosphere of this beautiful city.
+    </string>
+
+    <!--For trip planning screen-->
+    <string name="Delete">Delete</string>
+    <string name="Search">Search</string>
+    <string name="Current_location">Use my current location</string>
+    <string name="From">From</string>
+    <string name="To">To</string>
+    <string name="Hotels">Hotels</string>
+    <string name="Restaurants">Restaurants</string>
+    <string name="Sights_attractions">Sights and attractions</string>
+    <string name="Shopping">Shopping</string>
+    <string name="Fuel_stops">Fuel and rest stops</string>
+
+    <!-- for trip list -->
+    <string name="Sights">Sights</string>
+    <string name="Fuel">Fuel stops</string>
+
+    <!--For fuel-->
+    <string name="Efficency">Efficiency litres per 100km</string>
+    <string name="Fuel_cost">Fuel cost per 1l</string>
+    <string name="Calculate">Calculate</string>
+    <string name="Fuel_needed">Fuel needed: </string>
+    <string name="Fuel_cost_total"> Price: </string>
+
+
+    <!--For budget-->
+    <string name="Add_an_expense">Add an expense: </string>
+    <string name="Expense_name">Expense name</string>
+    <string name="Expense_value">Price</string>
+    <string name="Add_Expense">Add expense</string>
+
+    <!--For menu-->
+    <string name="Create_trip">Create a trip</string>
+    <string name="My_Trips">My trips</string>
+    <string name="Map">Map</string>
+    <string name="Guide">Guide</string>
+    <string name="Fuel_calculator">Fuel calculator</string>
+    <string name="Budget">Budget</string>
+
+    <!--edit trip-->
+    <string name="Edit_Trip">Edit trip</string>
+    <string name="Places">Places</string>
+    <string name="Select">Select</string>
+    <string name="Edit">Edit</string>
+
+
+    <!-- toast -->
+    <string name="Created_Trip">A trip has been created</string>
+    <string name="Updated_Trip">A trip has been updated</string>
+    <string name="Selected_Trip">A trip has been selected</string>
+    <string name="Deleted_Trip">A trip has been deleted</string>
+    <string name="Edit_or_Delete_Expense">Edit or delete expense</string>
+    <string name="Deleted_Expense">Expense deleted</string>
+    <string name="Updated_Expense">Expense updated</string>
+    <string name="Cancel">Cancel</string>
+    <string name="Save">Save</string>
+
+
+
 </resources>

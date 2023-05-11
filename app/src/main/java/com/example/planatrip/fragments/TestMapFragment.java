@@ -1,4 +1,4 @@
-package com.example.planatrip;
+package com.example.planatrip.fragments;
 
 import static android.content.Context.LOCATION_SERVICE;
 import static android.content.Context.MODE_PRIVATE;
@@ -24,6 +24,7 @@ import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 
 import android.util.Log;
 import android.view.KeyEvent;
@@ -36,6 +37,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.planatrip.GetNearbyPlaces;
+import com.example.planatrip.MapStateManager;
+import com.example.planatrip.MyDatabaseHelper;
+import com.example.planatrip.R;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
@@ -116,10 +121,11 @@ public class TestMapFragment extends Fragment implements OnMapReadyCallback {
 
     private GeoApiContext mGeoApiContext;
 
-    private String tripName = null;
+    private Integer TripID = null;
 
     private EditText mSearchtext;
 
+    private FragmentActivity mActivity;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -128,13 +134,13 @@ public class TestMapFragment extends Fragment implements OnMapReadyCallback {
 
         if(savedInstanceState!=null){
             String value = getArguments().getString("sudas");
-            Log.d(TAG, "onCreateView: sudas"+value);
+            Log.d(TAG, "onCreateView: "+value);
         }
         return rootView;
     }
 
-    public void setTripName(String tripName1){
-        tripName = tripName1;
+    public void setTripID(Integer tripID){
+        TripID = tripID;
     }
 
     private void requsestPermission() {
@@ -516,7 +522,7 @@ public class TestMapFragment extends Fragment implements OnMapReadyCallback {
         CameraPosition position = mgr.getSavedCameraPosition();
         if (position != null) {
             CameraUpdate update = CameraUpdateFactory.newCameraPosition(position);
-            Toast.makeText(getActivity(), "entering Resume State", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getActivity(), "entering Resume State", Toast.LENGTH_SHORT).show();
             mMap.moveCamera(update);
 
             mMap.setMapType(mgr.getSavedMapType());
@@ -543,7 +549,7 @@ public class TestMapFragment extends Fragment implements OnMapReadyCallback {
         Cursor cursor2;
 
         String[] projection2 = {
-                MyDatabaseHelper.COLUMN_CURRENTTRIP_STRING
+                MyDatabaseHelper.COLUMN_CURRENTTRIP_ID
         };
 
         cursor2 = db.query(
@@ -556,8 +562,12 @@ public class TestMapFragment extends Fragment implements OnMapReadyCallback {
                 null
         );
 
+        //if(db.)
          cursor2.moveToNext();
-         setTripName(cursor2.getString(cursor2.getColumnIndexOrThrow(MyDatabaseHelper.COLUMN_CURRENTTRIP_STRING)));
+
+        // int temp = cursor2.getInt(cursor2.getColumnIndexOrThrow(MyDatabaseHelper.COLUMN_CURRENTTRIP_ID));
+       // Log.d(TAG, "getFromDB: kazkas cia " + temp);
+        setTripID(cursor2.getInt(cursor2.getColumnIndexOrThrow(MyDatabaseHelper.COLUMN_CURRENTTRIP_ID)));
 
 
         String[] projection = {
@@ -567,12 +577,12 @@ public class TestMapFragment extends Fragment implements OnMapReadyCallback {
                 MyDatabaseHelper.COLUMN_LATITUDE_TO,
                 MyDatabaseHelper.COLUMN_SEARCH_STRING
         };
-        if(tripName!=null) {
+        if(TripID!=null) {
             cursor = db.query(
                     MyDatabaseHelper.TABLE_NAME,
                     projection,
-                    MyDatabaseHelper.COLUMN_NAMEOFTRIP_STRING + "=?",
-                    new String[]{tripName},
+                    MyDatabaseHelper.COLUMN_ID + "=?",
+                    new String[]{String.valueOf(TripID)},
                     null,
                     null,
                     null
@@ -609,7 +619,7 @@ public class TestMapFragment extends Fragment implements OnMapReadyCallback {
             drawRouteOnMap(coordinateFrom, coordinateTo, new OnRouteReadyCallback() {
                 @Override
                 public void onRouteReady(List<LatLng> routePoints) {
-                    Log.d(TAG, "onRouteReady: routepoints krw " + searchString);
+                    Log.d(TAG, "onRouteReady: routepoints " + searchString);
                     for (LatLng point : routePoints) {
                         double latitude = point.latitude;
                         double longitude = point.longitude;
@@ -634,7 +644,7 @@ public class TestMapFragment extends Fragment implements OnMapReadyCallback {
         super.onPause();
         MapStateManager mgr = new MapStateManager(getActivity());
         mgr.saveMapState(mMap);
-        Toast.makeText(getActivity(), "Map State has been save?", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getActivity(), "Map State has been save?", Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -836,6 +846,9 @@ public class TestMapFragment extends Fragment implements OnMapReadyCallback {
             @Override
             public void onFailure(Throwable e) {
                 // Handle the failure.
+                if (getActivity() == null) {
+                    return;
+                }
                 getActivity().runOnUiThread(new Runnable() {
                     @Override
                     public void run() {

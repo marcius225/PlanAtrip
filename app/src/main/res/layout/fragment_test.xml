@@ -2,25 +2,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@android:color/holo_blue_light">
-
-    <Button
-        android:id="@+id/myButton2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="40dp"
-        android:layout_marginBottom="28dp"
-        android:text="Delete"
-        app:layout_constraintBottom_toTopOf="@+id/myButton"
-        app:layout_constraintEnd_toEndOf="parent" />
+    android:layout_height="match_parent">
 
     <EditText
         android:id="@+id/editText1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="76dp"
-        android:hint="From"
+        android:hint="@string/From"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -31,7 +20,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
-        android:hint="To"
+        android:hint="@string/To"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText1"
@@ -43,7 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="40dp"
         android:layout_marginBottom="48dp"
-        android:text="Search"
+        android:text="@string/Search"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -52,7 +41,7 @@
         android:id="@+id/checkBoxLocation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Use my current location"
+        android:text="@string/Current_location"
         app:layout_constraintBottom_toTopOf="@+id/editText1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -64,7 +53,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:layout_marginTop="40dp"
-        android:text="Hotels"
+        android:text="@string/Hotels"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText2" />
 
@@ -74,7 +63,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:layout_marginTop="40dp"
-        android:text="Restaurants"
+        android:text="@string/Restaurants"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/checkBoxHotel" />
 
@@ -84,7 +73,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:layout_marginTop="40dp"
-        android:text="Shopping"
+        android:text="@string/Shopping"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/checkBoxSights" />
 
@@ -94,7 +83,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:layout_marginTop="40dp"
-        android:text="Fuel and Rest stops"
+        android:text="@string/Fuel_stops"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/checkBoxShop" />
 
@@ -104,7 +93,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:layout_marginTop="40dp"
-        android:text="Sights and attractions"
+        android:text="@string/Sights_attractions"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/checkBoxRestaurants" />
 

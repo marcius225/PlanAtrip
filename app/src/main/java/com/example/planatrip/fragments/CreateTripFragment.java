@@ -1,4 +1,4 @@
-package com.example.planatrip;
+package com.example.planatrip.fragments;
 
 import android.Manifest;
 import android.content.ContentValues;
@@ -19,27 +19,26 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
+import com.example.planatrip.MyDatabaseHelper;
+import com.example.planatrip.R;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TestFragment extends Fragment {
+public class CreateTripFragment extends Fragment {
 
     private static String TAG = "TestFragment";
 
@@ -73,13 +72,14 @@ public class TestFragment extends Fragment {
         mLatitudeEditText = view.findViewById(R.id.editText1);
         mLongitudeEditText = view.findViewById(R.id.editText2);
         mSaveButton = view.findViewById(R.id.myButton);
-        deleteButton = view.findViewById(R.id.myButton2);
         disableFrom = view.findViewById(R.id.checkBoxLocation);
         checkBoxHotel = view.findViewById(R.id.checkBoxHotel);
         checkBoxRestaurant = view.findViewById(R.id.checkBoxRestaurants);
         checkBoxSights = view.findViewById(R.id.checkBoxSights);
         checkBoxShop = view.findViewById(R.id.checkBoxShop);
         checkBoxFuel = view.findViewById(R.id.checkBoxFuel);
+
+
 
         mSaveButton.setEnabled(false);
 
@@ -92,38 +92,48 @@ public class TestFragment extends Fragment {
                 // Save the entered coordinates to the database
                 SQLiteDatabase db = mDbHelper.getWritableDatabase();
                 ContentValues values = new ContentValues();
+                String timeStamp = new SimpleDateFormat("yyyy.MM.dd").format(new java.util.Date());
+                String searchString = null;
+                String searchStringDB = null;
+                Log.d(TAG, "onClick: data" + timeStamp);
                 //eoLocate2(mLatitudeEditText.getText().toString());
 
                 if (checkBoxHotel.isChecked()) {
                     // Get the text value of the checked checkbox and add it to the ContentValues object
-                    String searchString = "lodging";
+                    searchString = "lodging";
+                    searchStringDB = getString(R.string.Hotels);
                     values.put(MyDatabaseHelper.COLUMN_SEARCH_STRING, searchString);
                 }
                 else if (checkBoxRestaurant.isChecked()) {
                     // Get the text value of the checked checkbox and add it to the ContentValues object
-                    String searchString = "restaurant";
+                    searchString = "restaurant";
+                    searchStringDB = getString(R.string.Restaurants);
                     values.put(MyDatabaseHelper.COLUMN_SEARCH_STRING, searchString);
                 }
                 else if (checkBoxSights.isChecked()) {
                     // Get the text value of the checked checkbox and add it to the ContentValues object
-                    String searchString = "tourist_attraction"; //need different
+                    searchString = "tourist_attraction"; //need different
+                    searchStringDB = getString(R.string.Sights);
                     values.put(MyDatabaseHelper.COLUMN_SEARCH_STRING, searchString);
                 }
                 else if (checkBoxShop.isChecked()) {
                     // Get the text value of the checked checkbox and add it to the ContentValues object
-                    String searchString = "supermarket"; //need different store gal?
+                    searchString = "supermarket"; //need different store gal?
+                    searchStringDB = getString(R.string.Shopping);
                     values.put(MyDatabaseHelper.COLUMN_SEARCH_STRING, searchString);
                 }
                 else if (checkBoxFuel.isChecked()) {
                     Log.d(TAG, "onClick: sitas du kartai checkBoxFuel?");
                     // Get the text value of the checked checkbox and add it to the ContentValues object
-                    String searchString = "gas_station"; //need different
+                    searchString = "gas_station"; //need different
+                    searchStringDB = getString(R.string.Fuel);
                     values.put(MyDatabaseHelper.COLUMN_SEARCH_STRING, searchString);
                 }
 
                 if(disableFrom.isChecked()) {
                     Log.d(TAG, "onClick: sitas du kartai disableFrom?");
-                    getUserLocation2(new TestFragment.LocationCallback() {
+                    String finalSearchStringDB = searchStringDB;
+                    getUserLocation2(new CreateTripFragment.LocationCallback() {
                         @Override
                         public void onNewLocationAvailable(double[] location) {
                             Log.d(TAG, "onNewLocationAvailable: du kartai ane");
@@ -145,13 +155,16 @@ public class TestFragment extends Fragment {
                             values.put(MyDatabaseHelper.COLUMN_LATITUDE_TO, latitudeTo);
                             values.put(MyDatabaseHelper.COLUMN_LONGITUDE_TO, longitudeTo);
 
-                            values.put(MyDatabaseHelper.COLUMN_NAMEOFTRIP_STRING,tripTo);
+                            values.put(MyDatabaseHelper.COLUMN_NAMEOFTRIP_STRING,tripTo+" " +"("+ finalSearchStringDB +")"+ " "+ timeStamp);
 
                             long newRowId = db.insert(MyDatabaseHelper.TABLE_NAME, null, values);
 
                             ContentValues contentValues = new ContentValues();
-                            contentValues.put("currenttrip_string", tripTo);
+                            contentValues.put("currenttrip_id", newRowId);
                             db.update("CURRENT_TRIP",contentValues,"_id=?",new String[]{"0"});
+                            //Toast.makeText(getActivity(), "A trip has been created", Toast.LENGTH_SHORT).show();
+                            String toast = getString(R.string.Created_Trip);
+                            Toast.makeText(getActivity(), toast, Toast.LENGTH_SHORT).show();
                         }
                     });
                 }
@@ -159,6 +172,7 @@ public class TestFragment extends Fragment {
                     double[] locationArrayFrom = geoLocate2(mLatitudeEditText.getText().toString());
                     double latitudeFrom = locationArrayFrom[0];
                     double longitudeFrom = locationArrayFrom[1];
+                    String finalSearchStringDB = searchStringDB;
 
                     values.put(MyDatabaseHelper.COLUMN_LATITUDE_FROM, latitudeFrom);
                     values.put(MyDatabaseHelper.COLUMN_LONGITUDE_FROM, longitudeFrom);
@@ -166,20 +180,22 @@ public class TestFragment extends Fragment {
                     double[] locationArrayTo = geoLocate2(mLongitudeEditText.getText().toString());
                     double latitudeTo = locationArrayTo[0];
                     double longitudeTo = locationArrayTo[1];
-                    String tripTo = mLongitudeEditText.getText().toString();
+                    String tripTo = mLongitudeEditText.getText().toString() ;
 
                     Log.d(TAG, "onNewLocationAvailable: ar gaunam stringa" + tripTo);
 
                     values.put(MyDatabaseHelper.COLUMN_LATITUDE_TO, latitudeTo);
                     values.put(MyDatabaseHelper.COLUMN_LONGITUDE_TO, longitudeTo);
 
-                    values.put(MyDatabaseHelper.COLUMN_NAMEOFTRIP_STRING,tripTo);
+                    values.put(MyDatabaseHelper.COLUMN_NAMEOFTRIP_STRING,tripTo+" "+ "("+ finalSearchStringDB +")"+ " "+ timeStamp);
 
                     long newRowId = db.insert(MyDatabaseHelper.TABLE_NAME, null, values);
 
                     ContentValues contentValues = new ContentValues();
-                    contentValues.put("currenttrip_string", tripTo);
+                    contentValues.put("currenttrip_id", newRowId);
                     db.update("CURRENT_TRIP",contentValues,"_id=?",new String[]{"0"});
+                    String toast = getString(R.string.Created_Trip);
+                    Toast.makeText(getActivity(), toast, Toast.LENGTH_SHORT).show();
                 }
 
 /*                double[] locationArrayFrom = geoLocate2(mLatitudeEditText.getText().toString());
@@ -234,17 +250,6 @@ public class TestFragment extends Fragment {
             @Override
             public void afterTextChanged(Editable s) {
                 // Do nothing
-            }
-        });
-
-        deleteButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                SQLiteDatabase db = mDbHelper.getWritableDatabase();
-                db.delete(MyDatabaseHelper.TABLE_NAME, null, null);
-                db.close();
-                // Show a toast message to indicate the deletion was successful
-                Toast.makeText(getActivity(), "Old coordinates deleted", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -399,7 +404,7 @@ public class TestFragment extends Fragment {
     public interface LocationCallback {
         void onNewLocationAvailable(double[] location);
     }
-    private void getUserLocation2(TestFragment.LocationCallback callback) {
+    private void getUserLocation2(CreateTripFragment.LocationCallback callback) {
         Log.d(TAG, "getUserLocation2: test");
         double[] locationArray = new double[2];
         if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION)

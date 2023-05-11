@@ -2,10 +2,8 @@ package com.example.planatrip;
 
 import android.content.Context;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.PopupMenu;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,16 +12,16 @@ import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     private Context mContext;
-    private List<MyObject> mMyObjects;
+    private List<CurrentTripObject> mMyObjects;
     private OnItemClickListener mListener;
 
-    public MyAdapter(Context context, List<MyObject> myObjects) {
+    public MyAdapter(Context context, List<CurrentTripObject> myObjects) {
         mContext = context;
         mMyObjects = myObjects;
     }
 
     public interface OnItemLongClickListener {
-        void onItemLongClick(MyObject myObject, View view);
+        void onItemLongClick(CurrentTripObject myObject, View view);
     }
 
     private OnItemClickListener mOnItemClickListener;
@@ -41,10 +39,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        MyObject myObject = mMyObjects.get(position);
+        CurrentTripObject myObject = mMyObjects.get(position);
         holder.textView1.setText(myObject.getNameOfTrip());
 
-            final MyObject currentObject = mMyObjects.get(position);
+            final CurrentTripObject currentObject = mMyObjects.get(position);
 
             // Set the click listeners
 /*            holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -87,7 +85,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
                     if (mListener != null) {
                         int position = getAdapterPosition();
                         if (position != RecyclerView.NO_POSITION) {
-                            MyObject myObject = mMyObjects.get(position);
+                            CurrentTripObject myObject = mMyObjects.get(position);
                             mListener.onItemClick(myObject);
                         }
                     }
@@ -98,7 +96,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     }
 
     public interface OnItemClickListener {
-        void onItemClick(MyObject myObject);
+        void onItemClick(CurrentTripObject myObject);
     }
 
     public void setOnItemClickListener(OnItemClickListener listener) {
